@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AuthService } from './_services/auth.service';
 
@@ -19,6 +21,8 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
       RegisterComponent
    ],
    imports: [
+      BrowserAnimationsModule,
+      BsDropdownModule.forRoot(),
       BrowserModule,
       HttpClientModule,
       FormsModule
