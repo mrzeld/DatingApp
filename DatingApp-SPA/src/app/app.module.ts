@@ -6,10 +6,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { JwtModule } from '@auth0/angular-jwt';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { AuthGuard } from './_guards/auth.guard';
+import { UserService } from './_services/user.service';
+import { AlertifyService } from './_services/alertify.service';
 
 import { appRoutes } from './routes';
 
@@ -23,6 +28,7 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { MemberListComponent } from './member/member-list/member-list.component';
 import { MemberCardComponent } from './member/member-card/member-card.component';
 import { MemberDetailComponent } from './member/member-detail/member-detail.component';
+import { MemberEditComponent } from './member/member-edit/member-edit.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 
@@ -39,6 +45,7 @@ export function tokenGetter() {
       MemberListComponent,
       MemberCardComponent,
       MemberDetailComponent,
+      MemberEditComponent,
       ListsComponent,
       MessagesComponent
    ],
@@ -61,9 +68,14 @@ export function tokenGetter() {
    ],
    providers: [
       AuthService,
+      UserService,
+      AlertifyService,
       ErrorInterceptorProvider,
       MemberDetailResolver,
-      MemberListResolver
+      MemberListResolver,
+      MemberEditResolver,
+      AuthGuard,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent
