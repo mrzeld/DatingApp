@@ -11,6 +11,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { FileUploadModule } from 'ng2-file-upload';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
@@ -31,6 +32,7 @@ import { MemberDetailComponent } from './member/member-detail/member-detail.comp
 import { MemberEditComponent } from './member/member-edit/member-edit.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
+import { PhotoEditorComponent } from './member/photo-editor/photo-editor.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -47,7 +49,8 @@ export function tokenGetter() {
       MemberDetailComponent,
       MemberEditComponent,
       ListsComponent,
-      MessagesComponent
+      MessagesComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserAnimationsModule,
@@ -58,6 +61,7 @@ export function tokenGetter() {
       FormsModule,
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
+      FileUploadModule,
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,

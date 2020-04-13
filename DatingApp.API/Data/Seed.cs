@@ -9,8 +9,8 @@ namespace DatingApp.API.Data
     {
         public static void SeedUsers(DataContext context)
         {
-            context.Users.RemoveRange(context.Users.ToList());
-            context.SaveChanges();
+            //context.Users.RemoveRange(context.Users.ToList());
+            //context.SaveChanges();
 
             if (!context.Users.Any())
             {
