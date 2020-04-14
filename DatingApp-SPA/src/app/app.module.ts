@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
 import { AlertifyService } from './_services/alertify.service';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 import { appRoutes } from './routes';
 
@@ -39,8 +40,15 @@ export function tokenGetter() {
    return localStorage.getItem('token');
 }
 
+@Pipe({
+   name: 'timeAgo',
+   pure: false
+})
+export class TimeAgoExtendsPipe extends TimeAgoPipe {}
+
 @NgModule({
    declarations: [
+      TimeAgoExtendsPipe,
       AppComponent,
       NavComponent,
       HomeComponent,
