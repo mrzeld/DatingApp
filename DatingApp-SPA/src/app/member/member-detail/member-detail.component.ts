@@ -10,7 +10,6 @@ import { AuthService } from 'src/app/_services/auth.service';
   styleUrls: ['./member-detail.component.css']
 })
 export class MemberDetailComponent implements OnInit {
-  me: User;
   user: User;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
@@ -20,7 +19,6 @@ export class MemberDetailComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.user = data.user;
-      this.me = data.me;
     });
 
     this.galleryOptions = [{
@@ -50,7 +48,6 @@ export class MemberDetailComponent implements OnInit {
 
   isMe() {
     return this.authService.currentUser.id === this.user.id;
-    // return this.me.id === this.user.id;
   }
 
 }

@@ -20,7 +20,8 @@
       </span>
 
       <a class="dropdown-toggle text-light" dropdownToggle>
-        Welcome {{authService.decodedToken?.unique_name | titlecase}} ({{model.username | titlecase}}) ({{authService.currentUser.username | titlecase}})
+        <!-- Welcome {{authService.decodedToken?.unique_name | titlecase}} ({{model.username | titlecase}}) ({{authService.currentUser.knownAs | titlecase}}) -->
+        Welcome {{authService.currentUser.knownAs | titlecase}}
       </a>
 
       <div class="dropdown-menu mt-3" *dropdownMenu>
