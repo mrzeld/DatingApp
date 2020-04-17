@@ -30,7 +30,7 @@
         </div>
         <div class="card-footer">
           <div class="btn-group d-flex">
-            <button [disabled]="isMe()" class="btn btn-primary w-100">Like</button>
+            <button [disabled]="isMe()" class="btn btn-primary w-100" (click)="sendLike(user.id)">Like</button>
             <button [disabled]="isMe()" class="btn btn-success w-100">Message</button>
           </div>
         </div>
