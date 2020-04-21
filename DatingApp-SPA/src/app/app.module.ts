@@ -8,6 +8,7 @@ import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { ListsResolver } from './_resolvers/lists.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
 import { JwtModule } from '@auth0/angular-jwt';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -38,6 +39,7 @@ import { MemberEditComponent } from './member/member-edit/member-edit.component'
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { PhotoEditorComponent } from './member/photo-editor/photo-editor.component';
+import { MemberMessagesComponent } from './member/member-messages/member-messages.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -61,6 +63,7 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe {}
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
+      MemberMessagesComponent,
       ListsComponent,
       MessagesComponent,
       PhotoEditorComponent
@@ -96,6 +99,7 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe {}
       MemberListResolver,
       MemberEditResolver,
       ListsResolver,
+      MessagesResolver,
       AuthGuard,
       PreventUnsavedChanges
    ],
